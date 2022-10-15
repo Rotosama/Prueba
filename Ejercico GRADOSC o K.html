@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function conversion(event){
+            event.preventDefault();
+            let celsius = document.forms["the-form"]["celsius"].value;
+            let kelvin = document.forms["the-form"]["kelvin"].value;
+            
+
+            if((celsius == "") && (kelvin =="")){
+                alert ("Debes escribir un numero!")
+                return false;
+            }else if (kelvin != ""){
+                document.forms["the-form"]["celsius"].value = parseFloat(kelvin) - 273.15;
+                return false;
+            }else if (celsius!= ""){
+                document.forms["the-form"]["kelvin"].value = parseFloat(celsius) + 273.15;
+                return false;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <form name="the-form" onsubmit="return conversion(event)">
+        <p>Grados C <input name="celsius" type="number"/></p>
+        <p>Grados K <input name ="kelvin" type="number"/></p>
+        <p><input type="submit" value="Calcular" /></p>
+    </form>
+</body>
+</html>
